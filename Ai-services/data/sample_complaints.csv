@@ -1,0 +1,37 @@
+complaint_id,complaint_text,category,severity_level,latitude,longitude,ward,address,image_tags,status,created_at,resolved_at,response_time_hours
+C001,Large pothole outside the metro gate is causing bikes to skid during rush hour,pothole,High,28.6132,77.2145,Ward 12,Metro Gate Road,"road,pothole,traffic",Resolved,2026-01-03 08:15:00,2026-01-04 10:30:00,26.25
+C002,Garbage has not been collected for four days near the market and the smell is unbearable,garbage,High,28.6128,77.2091,Ward 9,Main Market Lane,"garbage,waste,market",Resolved,2026-01-04 07:40:00,2026-01-05 13:10:00,29.5
+C003,No water supply since early morning in our apartment block,water_supply,Critical,28.6182,77.2201,Ward 14,River View Apartments,"pipeline,tank,water",Resolved,2026-01-04 06:30:00,2026-01-04 18:00:00,11.5
+C004,Frequent power cuts are happening every evening in the residential colony,electricity,High,28.6205,77.2083,Ward 6,Green Park Colony,"transformer,powerline",Resolved,2026-01-05 18:10:00,2026-01-06 03:20:00,9.17
+C005,Streetlight near the bus stop is fused and the area is very dark at night,streetlight,Medium,28.6145,77.2062,Ward 5,Central Bus Stop,"streetlight,pole,dark",Resolved,2026-01-06 20:15:00,2026-01-08 08:00:00,35.75
+C006,Drainage water is overflowing onto the road after light rain,drainage,High,28.6114,77.2184,Ward 11,Lake Road Junction,"drain,waterlogging,sewer",In Progress,2026-01-07 09:20:00,,22
+C007,Multiple potholes on the flyover approach are damaging cars,pothole,Critical,28.6264,77.2305,Ward 18,North Flyover Approach,"road,crack,vehicle",Resolved,2026-01-07 11:00:00,2026-01-08 09:00:00,22
+C008,Overflowing public dustbin is attracting stray animals near the school,garbage,Medium,28.6109,77.2017,Ward 3,Public School Road,"dustbin,waste,animals",Resolved,2026-01-08 08:45:00,2026-01-09 16:15:00,31.5
+C009,Water pressure is extremely low in the entire street,water_supply,Medium,28.6088,77.2143,Ward 8,Temple Street,"tap,water,pressure",Resolved,2026-01-08 05:20:00,2026-01-08 22:10:00,16.83
+C010,Transformer sparked loudly and half the lane lost electricity,electricity,Critical,28.6218,77.2244,Ward 15,Industrial Lane,"transformer,sparks,power",Resolved,2026-01-09 19:05:00,2026-01-10 00:35:00,5.5
+C011,Two streetlights on the park boundary are not working,streetlight,Low,28.6071,77.2054,Ward 2,Children Park,"park,light,pole",Resolved,2026-01-10 21:00:00,2026-01-12 12:00:00,39
+C012,Sewage drain has been clogged for a week and dirty water is entering homes,drainage,Critical,28.6175,77.2262,Ward 16,Canal Side Homes,"sewage,drain,overflow",Resolved,2026-01-11 07:15:00,2026-01-11 22:00:00,14.75
+C013,Road surface has broken near the hospital entrance and ambulances slow down,pothole,Critical,28.6151,77.2119,Ward 10,City Hospital Gate,"hospital,road,pothole",Resolved,2026-01-12 06:50:00,2026-01-12 20:30:00,13.67
+C014,Garbage pile beside the canal has become a mosquito breeding spot,garbage,High,28.6194,77.2288,Ward 17,Canal Service Road,"garbage,mosquito,waste",In Progress,2026-01-12 09:10:00,,44
+C015,Water pipeline leak is wasting water continuously near the roundabout,water_supply,High,28.6069,77.2192,Ward 13,Old Roundabout,"pipeline,leak,water",Resolved,2026-01-13 10:00:00,2026-01-14 01:20:00,15.33
+C016,Frequent short circuit smell from the electric pole in front of shops,electricity,High,28.6231,77.2102,Ward 7,Shopping Street,"pole,wiring,electric",Resolved,2026-01-13 18:45:00,2026-01-14 04:15:00,9.5
+C017,Streetlight on the corner has been flickering for many nights,streetlight,Low,28.6057,77.2166,Ward 13,Corner of Old Roundabout,"streetlight,flicker",Resolved,2026-01-14 20:10:00,2026-01-16 10:40:00,38.5
+C018,Blocked drain near vegetable market is causing stagnant filthy water,drainage,High,28.6121,77.2035,Ward 4,Vegetable Market,"drain,stagnant,sewer",Resolved,2026-01-15 08:30:00,2026-01-16 06:20:00,21.83
+C019,New pothole formed after rain near the traffic signal,pothole,Medium,28.6098,77.2077,Ward 5,Signal Chowk,"road,crack,rain",Resolved,2026-01-16 07:25:00,2026-01-17 13:00:00,29.58
+C020,Uncollected wet waste outside apartments is spreading foul odor,garbage,High,28.6188,77.2214,Ward 14,River View Apartments,"wet waste,garbage,odor",Resolved,2026-01-16 06:15:00,2026-01-17 12:00:00,29.75
+C021,No water in taps for the whole block and elderly residents are struggling,water_supply,Critical,28.6201,77.2178,Ward 14,River View Apartments,"water,taps,emergency",Resolved,2026-01-17 05:30:00,2026-01-17 14:00:00,8.5
+C022,Voltage fluctuations damaged appliances in several homes,electricity,Critical,28.6242,77.2261,Ward 15,Factory Extension Road,"voltage,appliances,power",Resolved,2026-01-17 20:30:00,2026-01-18 01:45:00,5.25
+C023,Dark stretch near the underpass because all three streetlights are dead,streetlight,High,28.6163,77.2301,Ward 18,Underpass Road,"underpass,lights,dark",In Progress,2026-01-18 19:50:00,,46
+C024,Drain near the temple has overflowed again and pedestrians cannot pass,drainage,Medium,28.6081,77.2128,Ward 8,Temple Street,"drain,overflow,pedestrian",Resolved,2026-01-18 09:45:00,2026-01-19 13:15:00,27.5
+C025,Deep road crater in front of the community center is dangerous,pothole,High,28.6149,77.2253,Ward 16,Community Center,"deep pothole,road,danger",Resolved,2026-01-19 08:10:00,2026-01-20 06:40:00,22.5
+C026,Garbage truck skipped our lane again and trash is piling up,garbage,Medium,28.6063,77.2049,Ward 3,Old Lane No 2,"waste,trash,lane",Resolved,2026-01-19 07:10:00,2026-01-20 15:20:00,32.17
+C027,Water contamination suspected because tap water looks muddy,water_supply,High,28.6111,77.2292,Ward 17,Canal Service Road,"muddy water,pipeline,health",Resolved,2026-01-20 06:40:00,2026-01-20 18:10:00,11.5
+C028,Power outage has affected the traffic signal at the junction,electricity,Critical,28.6137,77.2186,Ward 11,Lake Road Junction,"traffic signal,power,outage",Resolved,2026-01-20 18:55:00,2026-01-20 22:05:00,3.17
+C029,Streetlight missing near the women hostel entrance,streetlight,Medium,28.6198,77.2097,Ward 6,Women Hostel Gate,"hostel,streetlight,safety",Resolved,2026-01-21 21:20:00,2026-01-23 09:00:00,35.67
+C030,Sewer line choke has flooded the basement parking,drainage,Critical,28.6212,77.2227,Ward 15,Apartment Basement Ramp,"sewer,basement,flooding",Resolved,2026-01-21 08:25:00,2026-01-21 19:00:00,10.58
+C031,Uneven road patch near the market is causing daily minor accidents,pothole,High,28.6104,77.2065,Ward 4,Vegetable Market,"road,accident,patch",In Progress,2026-01-22 09:15:00,,41
+C032,Open garbage heap is blocking the footpath and attracting dogs,garbage,Medium,28.6058,77.2179,Ward 13,Old Roundabout Footpath,"garbage,dogs,footpath",Resolved,2026-01-22 08:00:00,2026-01-23 17:00:00,33
+C033,Intermittent water supply makes it impossible to fill tanks,water_supply,Medium,28.6079,77.2108,Ward 2,Children Park Extension,"water,tank,supply",Resolved,2026-01-23 05:50:00,2026-01-23 22:20:00,16.5
+C034,Sparking cable hanging low over the road is a safety hazard,electricity,Critical,28.6171,77.2041,Ward 4,Vegetable Market Road,"cable,sparks,hazard",Resolved,2026-01-23 18:40:00,2026-01-23 22:10:00,3.5
+C035,Streetlight complaint pending for a week near the senior citizen center,streetlight,Medium,28.6124,77.2276,Ward 16,Senior Citizen Center,"streetlight,pending,dark",Resolved,2026-01-24 20:00:00,2026-01-26 07:00:00,35
+C036,Drain cover broken and open gutter is unsafe for children,drainage,High,28.6091,77.2204,Ward 12,Playground Road,"gutter,drain,unsafe",Resolved,2026-01-24 10:35:00,2026-01-25 08:35:00,22
