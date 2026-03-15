@@ -1,121 +1,60 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+// App.jsx — The ROUTING HUB
+// ============================
+// Think of this as the "reception desk" of our app.
+// When you visit a URL like /dashboard, this file decides
+// WHICH page component to show you.
+//
+// We have two layouts:
+//   1. Full-screen (no sidebar) → Landing page only
+//   2. Main layout (with sidebar) → Dashboard, Map, ReportIssue
 
-function App() {
-  const [count, setCount] = useState(0)
+import { Routes, Route, Navigate, Outlet } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
+import Sidebar from './components/Sidebar'
+import Landing from './pages/Landing'
+import Dashboard from './pages/Dashboard'
+import ReportIssue from './pages/ReportIssue'
+import MapView from './pages/MapView'
 
+// MainLayout wraps every "inside" page with the sidebar navigation
+function MainLayout() {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div style={{ display: 'flex', minHeight: '100vh', background: '#020B18' }}>
+      {/* Fixed left sidebar — always visible on inner pages */}
+      <Sidebar />
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+      {/* Main content area — changes based on the current URL */}
+      <main style={{
+        flex: 1,
+        marginLeft: '240px',          // Width of the sidebar
+        minHeight: '100vh',
+        overflow: 'auto',
+        background: '#020B18',
+      }}>
+        {/* Outlet = "plug" where child route components render */}
+        <Outlet />
+      </main>
+    </div>
   )
 }
 
-export default App
+export default function App() {
+  return (
+    <AnimatePresence mode="wait">
+      <Routes>
+        {/* Landing page — full screen, no sidebar */}
+        <Route path="/" element={<Landing />} />
+
+        {/* Inner pages — all wrapped with the sidebar layout */}
+        <Route element={<MainLayout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/report"    element={<ReportIssue />} />
+          <Route path="/map"       element={<MapView />} />
+        </Route>
+
+        {/* Catch-all: unknown URLs redirect to landing page */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </AnimatePresence>
+  )
+}

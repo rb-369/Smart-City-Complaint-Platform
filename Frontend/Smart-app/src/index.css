@@ -1,111 +1,264 @@
+/* ============================================================
+   index.css — GLOBAL DESIGN SYSTEM
+   ============================================================
+   This file is the "DNA" of our entire visual design.
+   Every color, font, animation, and component style lives here.
+   Think of it as the blueprint an architect hands to a builder.
+   ============================================================ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Variables (Design Tokens) ──────────────────────────
+   Variables are like named constants — change one value here
+   and it updates everywhere in the app automatically. */
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  --bg-deep:        #020B18;              /* Space black — main background       */
+  --bg-surface:     #0A1628;              /* Card background                     */
+  --bg-elevated:    #0D1E36;              /* Hover/elevated card                 */
+  --border-subtle:  rgba(0,180,220,0.10); /* Almost invisible cyan border        */
+  --border-glow:    rgba(0,212,255,0.35); /* Glowing cyan border on hover        */
+  --accent-cyan:    #00D4FF;              /* Primary: electric cyan              */
+  --accent-amber:   #FFAB00;              /* Warning amber                       */
+  --accent-red:     #FF4560;              /* Critical / danger red               */
+  --accent-green:   #00E676;             /* Success / resolved green            */
+  --accent-violet:  #7B61FF;             /* Secondary violet                    */
+  --text-primary:   #E8F1FB;             /* Main readable text                  */
+  --text-secondary: #6B8EAE;             /* Labels, captions                    */
+  --text-muted:     #2E4A66;             /* Disabled / placeholder              */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
+/* ── Base Reset ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
+html { scroll-behavior: smooth; }
 
 body {
-  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+/* Custom scrollbar — thin cyan accent line */
+::-webkit-scrollbar        { width: 4px; height: 4px; }
+::-webkit-scrollbar-track  { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb  { background: rgba(0,212,255,0.25); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,212,255,0.5); }
+
+
+/* ── Typography ──────────────────────────────────────────── */
+h1, h2, h3, h4, h5 {
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 0.02em;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+
+/* ── Glass Card ──────────────────────────────────────────── */
+/* This is our signature component — frosted glass effect */
+.glass-card {
+  background:   var(--bg-surface);
+  border:       1px solid var(--border-subtle);
+  border-radius: 14px;
+  /* backdrop-filter creates the "frosted glass" blur behind the card */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.glass-card:hover {
+  border-color: var(--border-glow);
+  box-shadow:   0 0 24px rgba(0,212,255,0.07), 0 8px 32px rgba(0,0,0,0.4);
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+
+/* ── Grid Background Pattern ─────────────────────────────── */
+/* This creates the "circuit board" grid you see on pages */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0,212,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
+
+/* ── Gradient Text ───────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #00D4FF 0%, #00E676 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-text-fire {
+  background: linear-gradient(135deg, #FFAB00 0%, #FF4560 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+/* ── Glow Text ───────────────────────────────────────────── */
+.glow-text {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 20px rgba(0,212,255,0.6), 0 0 40px rgba(0,212,255,0.3);
+}
+
+
+/* ── Animated Live Dot (shows system is active) ──────────── */
+.live-dot {
+  width:  8px;
+  height: 8px;
+  background: var(--accent-green);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(0,230,118,0.5);
+  animation: dot-pulse 2s ease-in-out infinite;
+}
+@keyframes dot-pulse {
+  0%   { box-shadow: 0 0 0 0   rgba(0,230,118,0.5); }
+  70%  { box-shadow: 0 0 0 8px rgba(0,230,118,0);   }
+  100% { box-shadow: 0 0 0 0   rgba(0,230,118,0);   }
+}
+
+
+/* ── Priority / Status Badges ────────────────────────────── */
+/* Each priority has its own color theme (background + text + border) */
+.badge {
   display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+  align-items: center;
+  gap: 4px;
+  padding: 2px 10px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.badge-critical { background: rgba(255,69,96,0.15);  color: #FF4560; border: 1px solid rgba(255,69,96,0.35); }
+.badge-high     { background: rgba(255,171,0,0.15);  color: #FFAB00; border: 1px solid rgba(255,171,0,0.35); }
+.badge-medium   { background: rgba(0,212,255,0.12);  color: #00D4FF; border: 1px solid rgba(0,212,255,0.3);  }
+.badge-low      { background: rgba(0,230,118,0.12);  color: #00E676; border: 1px solid rgba(0,230,118,0.3);  }
+
+.badge-pending  { background: rgba(255,171,0,0.12);  color: #FFAB00; border: 1px solid rgba(255,171,0,0.3);  }
+.badge-progress { background: rgba(0,212,255,0.12);  color: #00D4FF; border: 1px solid rgba(0,212,255,0.3);  }
+.badge-resolved { background: rgba(0,230,118,0.12);  color: #00E676; border: 1px solid rgba(0,230,118,0.3);  }
+
+
+/* ── Glow Button ─────────────────────────────────────────── */
+.btn-glow {
+  background: linear-gradient(135deg, #00D4FF, #00A8CC);
+  color: #020B18;
+  font-weight: 700;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 0.08em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 0 rgba(0,212,255,0);
+}
+.btn-glow:hover {
+  box-shadow: 0 0 25px rgba(0,212,255,0.5);
+  transform: translateY(-1px);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--accent-cyan);
+  font-weight: 600;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(0,212,255,0.4);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.btn-outline:hover {
+  background: rgba(0,212,255,0.08);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 15px rgba(0,212,255,0.2);
+}
+
+
+/* ── Input Fields ────────────────────────────────────────── */
+.input-dark {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  padding: 10px 14px;
+  width: 100%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+.input-dark::placeholder { color: var(--text-muted); }
+.input-dark:focus {
+  border-color: rgba(0,212,255,0.5);
+  box-shadow: 0 0 0 3px rgba(0,212,255,0.08);
+}
+
+
+/* ── Scan Line Animation ─────────────────────────────────── */
+/* Creates a "radar sweep" visual effect over backgrounds */
+.scanline-effect {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.scanline-effect::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0,212,255,0.15), transparent);
+  animation: scanline 8s linear infinite;
+}
+@keyframes scanline {
+  0%   { transform: translateY(-100vh); }
+  100% { transform: translateY(100vh);  }
+}
+
+
+/* ── Recharts Custom Tooltips ────────────────────────────── */
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--border-glow) !important;
+  border-radius: 8px !important;
+  color: var(--text-primary) !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 13px !important;
+  box-shadow: 0 0 16px rgba(0,212,255,0.15) !important;
+}
+
+/* ── Leaflet Map Overrides ───────────────────────────────── */
+/* Make the Leaflet map match our dark theme */
+.leaflet-container {
+  background: var(--bg-deep) !important;
+  border-radius: 14px;
+  font-family: 'Outfit', sans-serif !important;
+}
+.leaflet-popup-content-wrapper {
+  background: rgba(10,22,40,0.97) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0,212,255,0.2) !important;
+  color: var(--text-primary) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 24px rgba(0,212,255,0.12) !important;
+  font-family: 'Outfit', sans-serif !important;
+}
+.leaflet-popup-tip        { background: rgba(10,22,40,0.97) !important; }
+.leaflet-popup-close-button { color: var(--text-secondary) !important; font-size: 16px !important; }
+.leaflet-bar a {
+  background: var(--bg-surface) !important;
+  border-color: var(--border-subtle) !important;
+  color: var(--text-primary) !important;
+}
+.leaflet-bar a:hover {
+  background: var(--bg-elevated) !important;
+  color: var(--accent-cyan) !important;
 }
